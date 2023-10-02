@@ -10,7 +10,7 @@ import (
 type route struct {
 	Name     string   `yaml:"name"`
 	Pattern  string   `yaml:"pattern"`
-	Function string   `yaml:"function"`
+	Package  string   `yaml:"package"`
 	Methods  []string `yaml:"methods"`
 	Redirect string   `yaml:"redirect"`
 }
@@ -53,7 +53,7 @@ func getRoute(file []byte) (*map[string]route, error) {
 
 func (r *route) invokeRoute() {
 	pattern := r.Pattern
-	function := r.Function
+	Package := r.Package
 	methods := r.Methods
 	redirect := r.Redirect
 
@@ -63,7 +63,7 @@ func (r *route) invokeRoute() {
 
 	fmt.Println(methods)
 
-	invokeHandler(pattern, function, methods, redirect)
+	invokeHandler(pattern, Package, methods, redirect)
 }
 
 func haveMethod(methods []string, method string) bool {

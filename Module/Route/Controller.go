@@ -1,32 +1,28 @@
 package Route
 
 import (
-	"fmt"
+	"GOdeau/Module/Controllers"
 	"net/http"
-	"reflect"
 )
 
-type Controllers struct {
-	Controller Controller
+type icontroller struct {
+	Package string `yaml:"package"`
 }
 
-type Controller struct{}
+func invokeHandler(pattern string, name string, methods []string, redirect string) {
 
-func invokeHandler(pattern string, fu string, methods []string, redirect string) {
-	var c Controllers
+	controller := Controllers.Controller
 
-	http.HandleFunc(pattern, func(w http.ResponseWriter, req *http.Request) {
-		if !haveMethod(methods, req.Method) {
-			http.Redirect(w, req, redirect, http.StatusSeeOther)
+	http.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
+		if !haveMethod(methods, r.Method) {
+			http.Redirect(w, r, redirect, http.StatusSeeOther)
 			return
 		}
 
-		args := make([]reflect.Value, 2)
-		args[0] = reflect.ValueOf(w)
-		args[1] = reflect.ValueOf(req)
+		for s, _ := range controller {
+			println("func : ", s)
+		}
 
-		fmt.Println("test")
-
-		reflect.ValueOf(&c).MethodByName(fu).Call(args)
+		//controller[name](w, r)
 	})
 }

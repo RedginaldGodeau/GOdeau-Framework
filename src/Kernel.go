@@ -1,7 +1,7 @@
 package src
 
 import (
-	"Hooter/Module/Route"
+	"GOdeau/Module/Route"
 	"fmt"
 	"net/http"
 )

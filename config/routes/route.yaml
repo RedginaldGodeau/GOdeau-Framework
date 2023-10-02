@@ -1,4 +1,4 @@
-ping:
-    name: "ping"
-    pattern: "/ping"
-    function: "Ping"
+helloworld:
+    name: "hello_world"
+    package: "User_Controller"
+    pattern: "/"

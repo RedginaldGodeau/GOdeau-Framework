@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Hooter/src"
+	"GOdeau/src"
 )
 
 func main() {
