@@ -1,0 +1,4 @@
+ping:
+    name: "ping"
+    pattern: "/ping"
+    function: "Ping"
