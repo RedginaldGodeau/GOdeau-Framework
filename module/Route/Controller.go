@@ -1,7 +1,7 @@
 package Route
 
 import (
-	"GOdeau/Module/Controllers"
+	"GOdeau/module/Controllers"
 	"net/http"
 )
 
