@@ -32,6 +32,9 @@ func InitRoute(routeDirectory string) error {
 		}
 
 		routes, err := getRoute(yamlFile)
+		if err != nil {
+			return err
+		}
 		for _, routeI := range *routes {
 			routeI.invokeRoute()
 		}
