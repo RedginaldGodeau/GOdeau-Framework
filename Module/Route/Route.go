@@ -64,7 +64,7 @@ func (r *route) invokeRoute() {
 		methods = append(methods, "GET")
 	}
 
-	fmt.Println(methods)
+	fmt.Println("Methode:", methods)
 
 	invokeHandler(pattern, Package, methods, redirect)
 }

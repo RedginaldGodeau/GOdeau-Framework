@@ -21,8 +21,8 @@ func invokeHandler(pattern string, name string, methods []string, redirect strin
 
 		for s := range controller {
 			println("func : ", s)
+			controller[s](w, r)
 		}
 
-		//controller[name](w, r)
 	})
 }
