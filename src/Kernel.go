@@ -2,6 +2,7 @@ package src
 
 import (
 	"GOdeau/Module/Route"
+	"GOdeau/src/User/Controller"
 	"fmt"
 	"net/http"
 )
@@ -13,6 +14,8 @@ func Kernel() {
 		fmt.Println(err)
 		return
 	}
+	
+	Controller.Init()
 
 	fmt.Println("http://localhost:8080")
 	err = http.ListenAndServe(":8080", nil)
