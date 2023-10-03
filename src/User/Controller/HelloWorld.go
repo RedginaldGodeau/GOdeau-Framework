@@ -1,7 +1,7 @@
 package Controller
 
 import (
-	"GOdeau/Module/Controllers"
+	"GOdeau/module/Controllers"
 	"fmt"
 	"net/http"
 )

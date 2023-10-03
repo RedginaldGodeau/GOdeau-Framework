@@ -21,7 +21,7 @@ type Db struct {
 	Database
 }
 
-type parameters interface{}
+// type parameters interface{} @! Pas important pour l'instant
 
 func (db *Db) Connection() error {
 
