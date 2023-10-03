@@ -1,7 +1,6 @@
 package Route
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
@@ -32,6 +31,10 @@ func InitRoute(routeDirectory string) error {
 		}
 
 		routes, err := getRoute(yamlFile)
+		if err != nil {
+			return err
+		}
+
 		for _, routeI := range *routes {
 			routeI.invokeRoute()
 		}
@@ -60,8 +63,6 @@ func (r *route) invokeRoute() {
 	if len(methods) == 0 {
 		methods = append(methods, "GET")
 	}
-
-	fmt.Println(methods)
 
 	invokeHandler(pattern, Package, methods, redirect)
 }

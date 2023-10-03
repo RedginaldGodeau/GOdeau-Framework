@@ -5,10 +5,6 @@ import (
 	"net/http"
 )
 
-type icontroller struct {
-	Package string `yaml:"package"`
-}
-
 func invokeHandler(pattern string, name string, methods []string, redirect string) {
 
 	controller := Controllers.Controller
@@ -19,10 +15,8 @@ func invokeHandler(pattern string, name string, methods []string, redirect strin
 			return
 		}
 
-		for s, _ := range controller {
-			println("func : ", s)
+		for s := range controller {
+			controller[s](w, r)
 		}
-
-		//controller[name](w, r)
 	})
 }
