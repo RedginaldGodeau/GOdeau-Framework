@@ -19,7 +19,7 @@ func invokeHandler(pattern string, name string, methods []string, redirect strin
 			return
 		}
 
-		for s, _ := range controller {
+		for s := range controller {
 			println("func : ", s)
 		}
 
