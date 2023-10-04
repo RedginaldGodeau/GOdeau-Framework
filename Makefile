@@ -8,8 +8,18 @@ ci:
 run:
 	@go run .
 
-.PHONY: build
-build:
-	@go build -o $(pwd)/var/
+build: windows-build linux-build
+windows-build:
+	@set GOOS=windows
+	@go build -o $(pwd)/var/app.exe
+linux-build:
+	@set GOOS=windows
+	@go build -o $(pwd)/var/app
 
+.PHONY: start
+start:
+	docker compose up -d
 
+.PHONY: start
+down:
+	docker compose down
