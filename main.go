@@ -1,9 +1,7 @@
 package main
 
-import (
-	"GOdeau/src"
-)
+import "GOdeau/godeau/Kernel"
 
 func main() {
-	src.Kernel()
+	Kernel.Run()
 }
