@@ -1,4 +1,0 @@
-helloworld:
-    name: "hello_world"
-    package: "User_Controller"
-    pattern: "/"
