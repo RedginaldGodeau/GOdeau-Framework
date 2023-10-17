@@ -3,6 +3,7 @@ package route
 import (
 	"GOdeau/godeau/Controllers"
 	"GOdeau/godeau/Controllers/Methods"
+	"GOdeau/src/controller"
 	"fmt"
 	"net/http"
 )
@@ -13,4 +14,5 @@ func Init() {
 		fmt.Fprintf(w, "Hello Word")
 	})
 
+	Controllers.New("ping_get", "/ping", Methods.List(Methods.GET), controller.PingGet)
 }
